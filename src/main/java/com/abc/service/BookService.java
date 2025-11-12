@@ -39,7 +39,7 @@ public class BookService {
         if (optionalBook.isPresent()) {
             Book opbk = optionalBook.get();
 
-            Book book = new Book(id, opbk.title(), opbk.author(), opbk.year());
+            Book book = new Book(id, opbk.getTitle(), opbk.getAuthor(), opbk.getYear());
             return br.save(book);
         } else {
             String msg = "Book with ID " + id + " not found for update!.";

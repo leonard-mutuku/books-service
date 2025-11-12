@@ -36,7 +36,7 @@ public class BookController {
         Book newBook = bs.saveBook(book);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(newBook.id())
+                .buildAndExpand(newBook.getId())
                 .toUri();
         return ResponseEntity.created(uri).body("Book created successful.");
     }
