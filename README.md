@@ -7,6 +7,9 @@ Application runs on java 17 and spring boot version 3.5.7. It can also be run as
 ## Build jar with maven
 mvn clean package
 
+## Run application
+mvn spring-boot:run
+
 ## Docker commands
 To build and run a docker image of the same, run below commands
 

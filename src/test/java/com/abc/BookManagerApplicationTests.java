@@ -27,10 +27,10 @@ class BookManagerApplicationTests {
     @Autowired
     private ObjectMapper objectMapper;
 
-//    @BeforeEach
-//    void setUp() {
-//        br.deleteAll();
-//    }
+    @BeforeEach
+    void setUp() {
+        br.deleteAll();
+    }
 
     @Test
     void testCreateMyEntity() throws Exception {
@@ -44,7 +44,7 @@ class BookManagerApplicationTests {
 
         // Verify the entity was saved in the database
         assertThat(br.count()).isEqualTo(1);
-//        assertThat(br.findById(22L)).isNotNull();
+        assertThat(br.findById(1L)).isNotNull();
     }
 
 }
