@@ -2,6 +2,8 @@
 
 This is a spring boot, java integration for manages books collections.
 
+Application is secured with basic authentication(username & password) and values can be updated in configs.
+
 Application runs on java 17 and spring boot version 3.5.7. It can also be run as a docker image and the steps for containerizing the application are explained below.
 
 ## Build jar with maven

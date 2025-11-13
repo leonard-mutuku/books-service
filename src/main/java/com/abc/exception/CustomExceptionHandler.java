@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -33,6 +34,12 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(EntityNotFoundException.class)
     protected ResponseEntity<Object> handleEntityNotFound(EntityNotFoundException ex) {
         CustomErrorResp apiError = new CustomErrorResp(HttpStatus.NOT_FOUND, LocalDateTime.now(), ex.getMessage());
+        return buildResponseEntity(apiError);
+    }
+    
+    @ExceptionHandler(AuthenticationException.class)
+    protected ResponseEntity<Object> handleAuthentication(AuthenticationException ex) {
+        CustomErrorResp apiError = new CustomErrorResp(HttpStatus.UNAUTHORIZED, LocalDateTime.now(), ex.getMessage());
         return buildResponseEntity(apiError);
     }
 
