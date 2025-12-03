@@ -37,9 +37,9 @@ public class BookService {
     public Book updateBookById(Long id, Book newBook) {
         Optional<Book> optionalBook = br.findById(id);
         if (optionalBook.isPresent()) {
-            Book opbk = optionalBook.get();
+//            Book opbk = optionalBook.get();
 
-            Book book = new Book(id, opbk.getTitle(), opbk.getAuthor(), opbk.getYear());
+            Book book = new Book(id, newBook.getTitle(), newBook.getAuthor(), newBook.getYear());
             return br.save(book);
         } else {
             String msg = "Book with ID " + id + " not found for update!.";
